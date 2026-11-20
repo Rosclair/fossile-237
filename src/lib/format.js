@@ -7,4 +7,4 @@ export const STORES = [
 ]
 export const effectivePrice = (p, settings) => (settings?.promo_active && p.promo_price ? p.promo_price : p.price)
 export const imgUrl = (p) => (p?.image_urls && p.image_urls[0]) || '/brand/poster.webp'
-export const waLink = (number, text) => `https://wa.me/${String(number || '').replace(/\D/g, '')}?text=${encodeURIComponent(text)}`
+export const waLink = (number, text) => `https://api.whatsapp.com/send?phone=${String(number || '').replace(/\D/g, '')}&text=${encodeURIComponent(text)}`

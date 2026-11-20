@@ -40,7 +40,7 @@ function Hero() {
             ))}
           </div>
         </div>
-        <div className="relative order-first mx-auto w-full max-w-[330px] animate-fadeUp [animation-delay:.2s] sm:max-w-[420px] lg:order-none lg:max-w-[520px]">
+        <div className="relative order-first mx-auto w-full max-w-[330px] animate-fadeUp [animation-delay:.2s] sm:max-w-[420px] lg:order-none lg:max-w-[520px] mb-8 lg:mb-0">
           <div className="relative aspect-square">
             <RingText />
             <div className="absolute inset-[9%] rounded-full border border-gold/25" />
@@ -50,7 +50,7 @@ function Hero() {
             </div>
           </div>
           {star && (
-            <div className="animate-float absolute -bottom-2 left-0 flex items-center gap-3 rounded-2xl border border-gold/40 bg-coal/90 p-3 pr-4 shadow-2xl backdrop-blur-xl sm:-left-6">
+            <div className="animate-float absolute -bottom-10 inset-x-0 mx-auto flex w-fit items-center sm:-bottom-2 sm:inset-x-auto sm:-left-6 sm:mx-0 gap-3 rounded-2xl border border-gold/40 bg-coal/90 p-3 pr-4 shadow-2xl backdrop-blur-xl sm:-left-6">
               <img src={imgUrl(star)} alt="" className="h-16 w-14 rounded-xl object-cover" />
               <div>
                 <div className="text-[10px] uppercase tracking-[0.2em] text-gold">Coup de cœur</div>
@@ -60,7 +60,7 @@ function Hero() {
               <button onClick={() => add(star)} className="ml-1 grid h-10 w-10 place-items-center rounded-full bg-gold text-ink" aria-label="Ajouter"><Bag className="h-4 w-4" /></button>
             </div>
           )}
-          <div className="absolute -right-2 top-6 rounded-2xl border border-gold/30 bg-coal/85 px-4 py-3 text-center backdrop-blur-xl sm:right-0">
+          <div className="absolute -right-2 top-6 hidden rounded-2xl sm:block border border-gold/30 bg-coal/85 px-4 py-3 text-center backdrop-blur-xl sm:right-0">
             <Shield className="mx-auto h-6 w-6 text-gold" />
             <div className="mt-1 text-[10px] font-bold uppercase tracking-[0.18em]">Authentique</div>
             <div className="text-[10px] text-muted">certifiée d'origine</div>

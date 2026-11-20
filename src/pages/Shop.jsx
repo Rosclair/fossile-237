@@ -101,16 +101,16 @@ export function Product() {
           <div className="mt-3 flex items-center gap-2 text-sm">{p.in_stock ? <><span className="h-2 w-2 rounded-full bg-[#1FAF5A]" /><span className="text-ivory/80">Disponible en boutique</span></> : <><span className="h-2 w-2 rounded-full bg-gold" /><span className="text-ivory/80">Sur commande</span></>}</div>
           <p className="mt-7 text-lg leading-relaxed text-ivory/75">{p.description}</p>
           <div className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line">
-            {[['Marque', p.brand], ['Mouvement', p.movement], ['Bracelet', p.strap], ['Coloris', p.color], ...(p.case_size ? [['Boîtier', p.case_size]] : []), ['Origine', 'USA – Canada']].map(([k, v]) => v && (
+            {[['Marque', p.brand], ['Mouvement', p.movement], ['Bracelet', p.strap], ['Coloris', p.color], ...(p.case_size ? [['Boîtier', p.case_size]] : []), ['Origine', 'USA – Canada'], ['Livraison', 'Yaoundé · Douala']].map(([k, v]) => v && (
               <div key={k} className="bg-coal p-4"><div className="text-[10px] uppercase tracking-[0.2em] text-muted">{k}</div><div className="mt-1 font-semibold">{v}</div></div>
             ))}
           </div>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <button onClick={() => { add(p); setCartOpen(true) }} className="btn-gold flex-1"><Bag className="h-5 w-5" />Ajouter au panier</button>
+            <button onClick={() => { add(p, 1, { silent: true }); setCartOpen(true) }} className="btn-gold flex-1"><Bag className="h-5 w-5" />Ajouter au panier</button>
             <a href={waLink(settings.whatsapp_number, msg)} target="_blank" rel="noreferrer" className="btn-wa flex-1"><WhatsApp />Commander directement</a>
           </div>
           <div className="mt-8 space-y-3 rounded-2xl border border-gold/20 bg-gold/[.04] p-5">
-            {[[Battery, 'Piles remplacées gratuitement pendant 10 ans'], [Shield, 'Garantie 2 ans sur le mécanisme (quartz)'], [Strap, 'Remplacement du bracelet cuir à -50 %'], [Check, 'Livrée dans son coffret d’origine']].map(([I, t]) => (
+            {[[Battery, 'Piles remplacées gratuitement pendant 10 ans'], [Shield, p.movement === 'Quartz' ? 'Garantie 2 ans sur le mécanisme' : p.movement === 'Connectée' ? 'Garantie 1 an (montre intelligente)' : 'Garantie et service après-vente en boutique'], [Strap, 'Remplacement du bracelet cuir à -50 %'], [Check, 'Livrée dans son coffret d’origine']].map(([I, t]) => (
               <div key={t} className="flex items-center gap-3 text-sm"><I className="h-5 w-5 text-gold" />{t}</div>
             ))}
           </div>

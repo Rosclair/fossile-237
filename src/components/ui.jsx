@@ -61,7 +61,7 @@ export function ProductCard({ p, index = 0 }) {
         </Link>
         <div className="p-4 md:p-5">
           <div className="mb-1 flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.2em] text-gold/80">
-            <span>{p.brand}</span><span className="text-muted">{STYLE_LABEL[p.style] || p.style}</span>
+            <span>{p.brand}</span><span className="hidden text-muted sm:inline">{STYLE_LABEL[p.style] || p.style}</span>
           </div>
           <Link to={`/montre/${p.slug}`} className="block font-display text-xl leading-tight text-ivory transition group-hover:text-gold-light md:text-[1.4rem]">{p.name}</Link>
           <div className="mt-1 text-xs text-muted">{GENDER_LABEL[p.gender]} · {p.strap}</div>

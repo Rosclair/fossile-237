@@ -31,12 +31,13 @@ export function StoreProvider({ children }) {
   const promoLive = !!settings.promo_active && (!settings.promo_ends_at || new Date(settings.promo_ends_at) > new Date())
   const s2 = useMemo(() => ({ ...settings, promo_active: promoLive }), [settings, promoLive])
 
-  const add = (product, qty = 1) => {
+  const add = (product, qty = 1, opts = {}) => {
     setCart((c) => {
       const f = c.find((i) => i.slug === product.slug)
       if (f) return c.map((i) => (i.slug === product.slug ? { ...i, qty: i.qty + qty } : i))
       return [...c, { slug: product.slug, qty }]
     })
+    if (opts.silent) return
     setToast({ name: product.name, img: product.image_urls?.[0] })
     setTimeout(() => setToast(null), 2600)
   }
